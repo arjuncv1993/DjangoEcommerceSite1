@@ -136,4 +136,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'collections')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-django_heroku.settings(locals())
+
