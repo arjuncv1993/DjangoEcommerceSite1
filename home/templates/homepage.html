@@ -1,0 +1,51 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="main_div">
+        <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                        <div class="numbertext">1 / 3</div>
+                        <img src="{{base}}/homeappliances1.jpg" style="width:100%;">
+                </div>
+
+                <div class="mySlides fade">
+                        <div class="numbertext">2 / 3</div>
+                        <img src="{{base}}/homeappliances4.jpg" style="width:100%;">
+                </div>
+
+                <div class="mySlides fade">
+                        <div class="numbertext">3 / 3</div>
+                        <img src="{{base}}/homeappliances5.jpg" style="width:100%;">
+                </div>
+
+        </div>
+        <br>
+
+        <div style="text-align:center">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+        </div>
+        <h1 style="color: white;"> Best Products of the Day</h1>
+        <div class="container" style="min-height: 648px;">
+                {% for i in pros %}
+                <div class="items_list" id="div">
+                        <a href="item/{{i.id}}" id="keyword">
+                                <div class="main_img_div"><img src="{{base}}/productimg/{{i.name}}.jpg"
+                                                alt="Product Image" class="center"></div>
+                        </a>
+                        <div class="items_listname">
+                                <a href="item/{{i.id}}" style="color: black;" id="keyword">{{i.name}}</a><br>
+                                Price: Rs.{{i.price}}/-
+                        </div>
+
+                </div>
+                {% endfor %}
+        </div>
+        <script>
+
+                showSlides();
+        </script>
+
+</div>
+{% endblock %}

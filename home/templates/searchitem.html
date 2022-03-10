@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    {% if keyword %}
+    <h3 style="color: white;">Search results of "{{keyword}}"</h3>
+    {% for i in pros %}
+    <div class="items_list" id="div">
+        <a href="http://127.0.0.1:8000/item/{{i.Item_No}}" id="keyword">
+            <div class="main_img_div"><img src="{{base}}/productimg/{{i.Item_Name}}.jpg" alt="Product Image"
+                    class="center"></div>
+        </a>
+        <div class="items_listname">
+            <a href="http://127.0.0.1:8000/item/{{i.Item_No}}" style="color: black;"
+                id="keyword">{{i.Item_Name}}</a><br>
+            Price: Rs.{{i.Price}}/-
+        </div>
+
+    </div>
+    {% endfor %}
+
+    {% else %}
+    <h3 style="color: white;">No Product Searched</h3>
+    {% endif %}
+</div>
+{% endblock %}

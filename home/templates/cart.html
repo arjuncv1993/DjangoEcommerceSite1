@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container" style="min-height: 648px;">
+    <h2 style="color: white;">My Cart</h2>
+    <div class="cart_div">
+        {% if Nos == 0 %}
+        Cart Is Empty
+        {% else %}
+        {% for i in pros %}
+        <div class="cart_item">
+            <div style="float: left;width: 55%;border-style: double; padding:10px">
+                * {{i.name}}
+            </div>
+            <div style="float: left;width: 12.5%;border-style: double; padding:10px">
+                {{i.qty}} Nos
+            </div>
+            <div style="float: left;width: 12.5%;border-style: double; padding:10px">
+                {{i.price}}/Unit
+            </div>
+            <div style="float: left;width: 12.5%;border-style: double; padding:10px">
+                Rs.{{i.total_price}}/-
+            </div>
+            <div style="float: left;width: 5%;border-style: double; padding:5px">
+                <a href="/deletecartitem/{{i.id}}">
+                    <box-icon name='trash'></box-icon>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="cart_div2">
+        <div class="cart_total">
+            <h4>Total Amount:</h4>
+        </div>
+        <div style="width: 30%; height: 100%; float: left; padding: 20px;">
+            <h4>Rs.{{total}}/-</h4>
+        </div>
+    </div>
+    <div id='place' style="justify-content: center; align-items: center; display: flex;padding-top: 50px;">
+        {% if Nos == 0 %}
+        <a href="/" style="color: black; margin: 10px;"><input type="submit" value="Continue Shoping."></a>
+        {% else %}
+        <button type="submit" id='Submitorder' style="color:black; margin: 10px;"
+            onclick="Submitorder()">Proceed</button>
+        <a href="/" style="color: black; margin: 10px;"><input type="submit" value="Continue Shoping."></a>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

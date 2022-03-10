@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container" style="min-height: 648px;">
+    <h2 style="color: white;"><strong>Order Summary</strong></h2>
+    <div class="cart_div">
+
+        <div>
+            <h3>Item Summary</h3>
+            <div>
+                <table style="border-style: solid; border-width: 1px; width:100%;">
+                    <div>
+                        <thead style="border-style: solid; border-width: 1px;">
+                            <th style="border-style: solid; border-width: 1px; padding: 5px; width:60%">Item Name</th>
+                            <th
+                                style="border-style: solid; border-width: 1px; padding: 5px; text-align: right; width: 20%;">
+                                Quantity</th>
+                            <th
+                                style="border-style: solid; border-width: 1px; padding: 5px; text-align: right; width: 20%;">
+                                Price</th>
+                        </thead>
+                        {% for i in items %}
+                        <tr style="border-style: solid; border-width: 1px;">
+                            <td style="border-style: solid; border-width: 1px; padding: 5px;">{{i.name}}</td>
+                            <td style="border-style: solid; border-width: 1px; padding: 5px; text-align: right;">
+                                {{i.qty}} Nos</td>
+                            <td style="border-style: solid; border-width: 1px; padding: 5px; text-align: right;">
+                                Rs.{{i.price}}/-</td>
+                        </tr>
+                        {% endfor %}
+                    </div>
+                </table>
+                <table style="border-style: solid; border-width: 1px; width:100%;">
+                    <div style="margin-top: 10px;">
+                        <thead>
+                            <th style="border-style: solid; border-width: 1px; padding: 5px; width: 80%;">Total Amount:
+                            </th>
+                            <th
+                                style="border-style: solid; border-width: 1px; padding: 5px; text-align: right; width: 20%;">
+                                Rs.{{total}}/-</th>
+                        </thead>
+                    </div>
+                </table>
+            </div>
+        </div>
+
+
+        <div>
+            <h3>Shipping Address</h3>
+            {{add.username.first_name}} {{add.username.last_name}}<br>
+            {{add.Address_line1}}, {{add.Address_line2}}<br>
+            {{add.City}}, {{add.State}}, Pin:{{add.Pincode}}<br>
+            Landmark: {{add.landmark}}<br>
+            Ph: {{add.Phone_no}}<br>
+        </div>
+    </div>
+    <div style="justify-content: center; width: 100%; display: flex; margin-top: 50px;">
+        <a href="#" style="color: black;"><button>Make Payment</button></a>
+    </div>
+</div>
+{% endblock %}

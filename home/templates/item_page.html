@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container" style="min-height: 648px;">
+    <div class="item_div">
+        <div class="image_div">
+            <img src="{{base}}/productimg/{{pros.Item_Name}}.jpg" alt="Product Image" class="center">
+        </div>
+        <div class="features_div">
+            <h3><strong>{{pros.Item_Name}}</strong></h3>
+            <h4>Price: Rs.{{pros.Price}}/-</h4>
+            <br><br><br>
+            <h4><strong>Features:</strong></h4>
+            {% for k,v in spec.items %}
+            {% for f in v %}
+            <ul>
+                <li>{{f}}</li>
+            </ul>
+            {% endfor %}
+            {% endfor %}
+            {% if user.is_authenticated %}
+            <form action="/addtocart" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="itemno" value="{{pros.Item_No}}"><br>
+                <label for="">Qty</label>
+                <input type="number" name="qty" min="1" max="10">
+                <input type="submit" value="Add to Cart" style="color: black;">
+            </form>
+            {% else %}
+            <form action="/login/" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="path" value="{{request.path}}">
+                <input type="submit" value="Login" style="color: black;">
+            </form>
+            {% endif %}
+        </div>
+    </div>
+
+    <h3 style="color: white;"><u> Similar Products</u></h3>
+    {% for i in tdb %}
+    {% if i.Category == pros.Category %}
+    <div class="items_list" id="div">
+        <a href="http://127.0.0.1:8000/item/{{i.Item_No}}" id="keyword"></a>
+        <div class="main_img_div"><img src="{{base}}/productimg/{{i.Item_Name}}.jpg" alt="Product Image" class="center">
+        </div></a>
+        <div class="items_listname">
+            <a href="http://127.0.0.1:8000/item/{{i.Item_No}}" style="color: black;"
+                id="keyword">{{i.Item_Name}}</a><br>
+            Price: Rs.{{i.Price}}/-
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+</div>
+{% endblock %}

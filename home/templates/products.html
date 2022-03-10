@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container" style="min-height: 648px;">
+        <h2 style="color: white;">{{cat}}</h2>
+        {% for i in pros %}
+        <div class="items_list" id="div">
+                <div class="main_img_div"><img src="{{base}}/productimg/{{i.Item_Name}}.jpg" alt="Product Image"
+                                class="center"></div>
+                <div class="items_listname">
+                        <a href="http://127.0.0.1:8000/item/{{i.Item_No}}" style="color: black;"
+                                id="keyword">{{i.Item_Name}}</a><br>
+                        Price: Rs.{{i.Price}}/-
+                </div>
+
+        </div>
+        {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="cart_div">
+        <h3 style="color: black;"><strong>User Profile</strong></h3>
+
+        <h4>Name: {{request.user.first_name}} {{request.user.last_name}}</h4>
+        <h4>Email: {{request.user.email}}</h4><br>
+        {% for i in add %}
+            <div id=address class="address_div">
+                <form action="login/deleteaddress/{{i.id}}">
+                    <div style="width: 90%; height: 120px;float: left; height: 100%;">
+                        {{i.Address_line1}}<br>
+                        {{i.Address_line2}}<br>
+                        {{i.City}}, {{i.State}}, Pin:{{i.Pincode}}<br>
+                        {{i.landmark}}<br>
+                        {{i.Phone_no}}<br>
+                        <input type="hidden" name="path" value="{{request.path}}">
+                        <br>
+                        <input type="submit" name="submit" value="Delete Address" style="color: black;">
+                    </div>
+                </form>
+
+            </form>
+            </div>
+            {% endfor %}
+        <button type="button" onclick="add_address()" style="color: black;">+Add Address</button>
+        <br>
+        <form action="/login/shippingdata" method="post" id="registerform" style="display: none;">
+            {% csrf_token %}
+            <table style="margin: 50px;">
+                <tr>
+                    <td style="padding: 10px;"><label for=""> Address Line 1</label></td>
+                    <td style="padding: 10px;"><input type="text" name="addressline1" maxlength="50"></td>
+                    <td style="padding: 10px;"><label for=""> Address Line 2</label></td>
+                    <td style="padding: 10px;"><input type="text" name="addressline2" maxlength="50"></td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px;"><label for=""> City</label></td>
+                    <td style="padding: 10px;"><input type="text" name="city" maxlength="50"></td>
+                    <td style="padding: 10px;"><label for=""> State</label></td>
+                    <td style="padding: 10px;"><input type="text" name="state" maxlength="50"></td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px;"><label for=""> Phone No</label></td>
+                    <td style="padding: 10px;"><input type="text" name="phoneno" maxlength="10"></td>
+                    <td style="padding: 10px;"><label for=""> Pincode</label></td>
+                    <td style="padding: 10px;"><input type="text" name="pincode" maxlength="6"></td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px;"><label for=""> Landmark</label></td>
+                    <td style="padding: 10px;"><input type="text" name="landmark" maxlength="100"></td>
+                </tr>
+            </table>
+            <input type="hidden" name="path2" value="{{request.path}}">
+            <center style="color: black;"><input type="submit" value="Add"></center>
+        </form>
+
+        <br>
+        <br>
+
+        <a href="http://127.0.0.1:8000/mycart" style="color: black;"> <h4>My Cart Items</h4></a>
+        <br><br><br><br>
+
+        <form action="login/deleteuser/{{request.user.id}}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Delete account" style="color: black;">
+        </form>
+    </div>
+</div>
+
+{% endblock %}
