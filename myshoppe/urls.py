@@ -23,6 +23,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(home.urls) , name='homeapp'),
     path('login/', include(account.urls) , name='login'),
-    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
-    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ]
