@@ -9,7 +9,7 @@
         <h4>Email: {{request.user.email}}</h4><br>
         {% for i in add %}
             <div id=address class="address_div">
-                <form action="login/deleteaddress/{{i.id}}">
+                <form action="https://newsite123.herokuapp.com/login/deleteaddress/{{i.id}}">
                     <div style="width: 90%; height: 120px;float: left; height: 100%;">
                         {{i.Address_line1}}<br>
                         {{i.Address_line2}}<br>
@@ -27,7 +27,7 @@
             {% endfor %}
         <button type="button" onclick="add_address()" style="color: black;">+Add Address</button>
         <br>
-        <form action="/login/shippingdata" method="post" id="registerform" style="display: none;">
+        <form action="https://newsite123.herokuapp.com/login/shippingdata" method="post" id="registerform" style="display: none;">
             {% csrf_token %}
             <table style="margin: 50px;">
                 <tr>
@@ -60,10 +60,10 @@
         <br>
         <br>
 
-        <a href="mycart" style="color: black;"> <h4>My Cart Items</h4></a>
+        <a href="https://newsite123.herokuapp.com/mycart" style="color: black;"> <h4>My Cart Items</h4></a>
         <br><br><br><br>
 
-        <form action="login/deleteuser/{{request.user.id}}" method="post">
+        <form action="https://newsite123.herokuapp.com/login/deleteuser/{{request.user.id}}" method="post">
             {% csrf_token %}
             <input type="submit" value="Delete account" style="color: black;">
         </form>

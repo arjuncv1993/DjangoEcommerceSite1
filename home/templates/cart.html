@@ -21,7 +21,7 @@
                 Rs.{{i.total_price}}/-
             </div>
             <div style="float: left;width: 5%;border-style: double; padding:5px">
-                <a href="/deletecartitem/{{i.id}}">
+                <a href="https://newsite123.herokuapp.com/deletecartitem/{{i.id}}">
                     <box-icon name='trash'></box-icon>
                 </a>
             </div>
@@ -39,11 +39,11 @@
     </div>
     <div id='place' style="justify-content: center; align-items: center; display: flex;padding-top: 50px;">
         {% if Nos == 0 %}
-        <a href="/" style="color: black; margin: 10px;"><input type="submit" value="Continue Shoping."></a>
+        <a href="https://newsite123.herokuapp.com/" style="color: black; margin: 10px;"><input type="submit" value="Continue Shoping."></a>
         {% else %}
         <button type="submit" id='Submitorder' style="color:black; margin: 10px;"
             onclick="Submitorder()">Proceed</button>
-        <a href="/" style="color: black; margin: 10px;"><input type="submit" value="Continue Shoping."></a>
+        <a href="https://newsite123.herokuapp.com/" style="color: black; margin: 10px;"><input type="submit" value="Continue Shoping."></a>
         {% endif %}
     </div>
 </div>

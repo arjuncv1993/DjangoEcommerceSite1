@@ -5,10 +5,12 @@
         <h2 style="color: white;">{{cat}}</h2>
         {% for i in pros %}
         <div class="items_list" id="div">
-                <div class="main_img_div"><img src="{{base}}/productimg/{{i.Item_Name}}.jpg" alt="Product Image"
+                <a href="https://newsite123.herokuapp.com/item/{{i.Item_No}}" id="keyword">
+                        <div class="main_img_div"><img src="{{base}}/productimg/{{i.Item_Name}}.jpg" alt="Product Image"
                                 class="center"></div>
+                </a>
                 <div class="items_listname">
-                        <a href="item/{{i.Item_No}}" style="color: black;"
+                        <a href="https://newsite123.herokuapp.com/item/{{i.Item_No}}" style="color: black;"
                                 id="keyword">{{i.Item_Name}}</a><br>
                         Price: Rs.{{i.Price}}/-
                 </div>

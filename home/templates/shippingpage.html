@@ -9,7 +9,7 @@
 
         <button type="button" onclick="add_address()" style="color: black;">+Add Address</button>
         <br>
-        <form action="/login/shippingdata" method="post" id="registerform" style="display: none;">
+        <form action="https://newsite123.herokuapp.com/login/shippingdata" method="post" id="registerform" style="display: none;">
             {% csrf_token %}
             <table style="margin: 50px;">
                 <tr>
@@ -56,7 +56,7 @@
                 </div>
                 <div
                     style="width: 10%; height: 120px; float: left; justify-content: center;display: flex; align-items: center;">
-                    <a href="login/deleteaddress/{{i.id}}">
+                    <a href="https://newsite123.herokuapp.com/login/deleteaddress/{{i.id}}">
                         <box-icon name='trash'></box-icon>
                     </a>
                 </div>
@@ -66,7 +66,7 @@
             <br>
             <br>
             <a href="" style="color: black;"><input type="submit" value="Place Order"></a>
-            <a href="mycart" style="color: black;"><input type="button" value="Back"></a>
+            <a href="https://newsite123.herokuapp.com/mycart" style="color: black;"><input type="button" value="Back"></a>
         </Form>
     </div>
 </div>

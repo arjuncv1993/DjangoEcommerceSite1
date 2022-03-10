@@ -21,10 +21,10 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">My Shoppe</a>
+                <a class="navbar-brand" href="https://newsite123.herokuapp.com/">My Shoppe</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
+                <li class="active"><a href="https://newsite123.herokuapp.com/">Home</a></li>
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Category <span
                             class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -43,12 +43,12 @@
                     </ul>
                 </li>
                 {% if user.is_authenticated %}
-                    <li><a href="/mycart">Cart</a></li>
+                    <li><a href="https://newsite123.herokuapp.com/mycart">Cart</a></li>
                 {% else %}
-                    <li><a href="/login">Cart</a></li>
+                    <li><a href="https://newsite123.herokuapp.com/login">Cart</a></li>
                 {% endif %}
             </ul>
-            <form class="navbar-form navbar-left" action="//searchitem" method="post">
+            <form class="navbar-form navbar-left" action="https://newsite123.herokuapp.com/searchitem" method="post">
                 {% csrf_token %}
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search for products, brands and more..." size="40" name="keyword" id="keyword">
@@ -58,14 +58,14 @@
             <ul class="nav navbar-nav navbar-right">
                 
                 {% if user.is_authenticated is False%}
-                    <li><a href="/login/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="https://newsite123.herokuapp.com/login/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 {% else %}
-                    <li><a href="userprofile"><span class="glyphicon glyphicon-user"></span> {{request.user.username}}</a></li>
+                    <li><a href="https://newsite123.herokuapp.com/userprofile"><span class="glyphicon glyphicon-user"></span> {{request.user.username}}</a></li>
                 {% endif %}
                 {% if user.is_authenticated %}
-                    <li><a href="/login/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    <li><a href="https://newsite123.herokuapp.com/login/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                 {% else %}
-                    <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="https://newsite123.herokuapp.com/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 {% endif %}
             </ul>
         </div>
@@ -93,18 +93,18 @@
             <div style="width: 30%; float: left;">
               <h4 style="color: white;">Links</h4>
                 <ul class="list_tag">
-                    <li>- <a href="/" class="icon_a">Home</a></li>
+                    <li>- <a href="https://newsite123.herokuapp.com/" class="icon_a">Home</a></li>
                     {% if user.is_authenticated %}
-                        <li>- <a href="userprofile" class="icon_a">Profile</a></li>
+                        <li>- <a href="https://newsite123.herokuapp.com/userprofile" class="icon_a">Profile</a></li>
                     {% endif %}
-                    <li>- <a href="mycart" class="icon_a">My Cart</a></li>
+                    <li>- <a href="https://newsite123.herokuapp.com/mycart" class="icon_a">My Cart</a></li>
                     {% if user.is_authenticated %}
-                        <li>- <a href="login/logout" class="icon_a">Logout</a></li>
+                        <li>- <a href="https://newsite123.herokuapp.com/login/logout" class="icon_a">Logout</a></li>
                     {% else %}
-                        <li>- <a href="login" class="icon_a">Login</a></li>
+                        <li>- <a href="https://newsite123.herokuapp.com/login" class="icon_a">Login</a></li>
                     {% endif %}
                     {% if user.is_authenticated is False %}
-                        <li>- <a href="login/register" class="icon_a">Sign Up</a></li>
+                        <li>- <a href="https://newsite123.herokuapp.com/login/register" class="icon_a">Sign Up</a></li>
                     {% endif %}
                 </ul>
             </div>
